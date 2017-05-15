@@ -31,7 +31,7 @@ public class TaskController {
 		taskRepository.delete(id);
 	}
 
-	@GetMapping
+	@GetMapping(path = "/api/tasks")
 	public List<Task> getTasks() {
 		return taskRepository.findAll();
 	}
