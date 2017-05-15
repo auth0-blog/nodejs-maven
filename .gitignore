@@ -1,3 +1,6 @@
+src/main/resources/static/js/
+
+node_modules/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
