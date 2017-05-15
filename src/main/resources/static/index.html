@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Integrating Node.js build tools with Maven</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container" ng-app="app">
+	<div class="row">
+		<div class="col-xs-12" ng-controller="mainController as mainCtrl">
+			<h1>Integrating Node.js build tools with Maven</h1>
+			<div class="row">
+				<div class="col-xs-4">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" class="form-control"
+							   ng-model="mainCtrl.task.title"
+							   id="title" placeholder="Task title">
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="form-group">
+						<label for="description">Description</label>
+						<input type="text" class="form-control"
+							   ng-model="mainCtrl.task.description"
+							   id="description" placeholder="Task description">
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<div class="form-group">
+						<button class="btn btn-default" ng-click="mainCtrl.addTask()" style="margin-top: 25px;">
+							Add task
+						</button>
+					</div>
+				</div>
+			</div>
+			<table class="table" style="margin-top: 10px;">
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Options</th>
+				</tr>
+				<tr ng-repeat="task in mainCtrl.tasks">
+					<td>{{task.title}}</td>
+					<td>{{task.description}}</td>
+					<td>
+						<button class="btn btn-danger" ng-click="mainCtrl.removeTask(task)">
+							<span class="glyphicon glyphicon-remove-circle"></span>
+						</button>
+					</td>
+				</tr>
+				<tr ng-if="mainCtrl.tasks.length == 0">
+					<td colspan="4">No tasks available.</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
